@@ -5,9 +5,20 @@ const calculateDistance = (point1, point2) => {
     return distance;
 }
 
-const calculateJunctionPoint = (lin1, line2)=>{
-    
-}
-const calculateAngle = (line1, line2) =>{
+const calculateJunctionPoint = (line1, line2) => {
 
+}
+const calculateAngle = (line1, line2) => {
+
+}
+
+const calculateIncline = (point, point) => {
+
+}
+
+module.exports = {
+    calculateDistance,
+    calculateAngle,
+    calculateIncline,
+    calculateJunctionPoint
 }
