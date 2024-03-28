@@ -1,0 +1,23 @@
+{
+  "name": "build-tests",
+  "version": "1.0.0",
+  "description": "practice unit tests in javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "jest": "^29.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gemtechd/build-tests.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gemtechd/build-tests/issues"
+  },
+  "homepage": "https://github.com/gemtechd/build-tests#readme",
+  "author": "gemtechd",
+  "license": "ISC"
+
+}
