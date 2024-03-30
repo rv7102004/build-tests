@@ -8,17 +8,19 @@ const calculateDistance = (point1, point2) => {
 const calculateJunctionPoint = (line1, line2) => {
 
 }
+
 const calculateAngle = (line1, line2) => {
 
 }
 
-const calculateIncline = (point, point) => {
-
+const calculateSlope = (point1, point2) => {
+      const slope = (point1.y - point2.y)/(point1.x-point2.x)
+      return slope
 }
 
 module.exports = {
     calculateDistance,
     calculateAngle,
-    calculateIncline,
+    calculateSlope,
     calculateJunctionPoint
 }
