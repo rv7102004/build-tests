@@ -1,5 +1,5 @@
 class Point {
-    constructor(x, y) {
+    constructor({x, y}) {
         this.x = x;
         this.y = y;
     }
@@ -10,3 +10,5 @@ class Point {
         this.x += value;
     }
 }
+
+module.exports = Point
