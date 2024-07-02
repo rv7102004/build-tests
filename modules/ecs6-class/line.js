@@ -1,89 +1,38 @@
-const { calculateSlope, calculateNOfLineFunction } = require("../geometry-calculation");
 const Point = require("./point");
 
 class Line {
-    constructor({ point1 = undefined, point2 = undefined, n = undefined, slope = undefined }) {
+    constructor({ point1 = new Point(), point2 = new Point(), n = undefined, slope = undefined }) {
         this.point1 = point1;
         this.point2 = point2;
         this.slope = slope;
         this.n = n;
     }
-    addPoint(point) {
-        if (this.point1 === undefined) {
-            this.point1 = point
-        }
-        else {
-            if (this.point2 === undefined) {
-                this.point2 = point
-            }
-        }
+
+    calculateSlope = () => {
+        this.slope = (this.point1.y - this.point2.y) / (this.point1.x - this.point2.x)
     }
 
-    get Points() {
-        return { point1: this.point1, point2: this.point2 }
-    }
-
-    set Slope(slope) {
-        this.slope = slope;
-    }
-
-    get Slope() {
-        if (!this.slope) {
-            if (this.point1 && this.point2) {
-                this.slope = calculateSlope(this.point1, this.point2)
-            }
-        }
-        return this.slope
-    }
-
-    set N(n) {
-        this.n = n;
-    }
-
-    get N() {
-        if (!this.n) {
-            if ((this.point1 || this.point2) && this.slope)
-                this.n = calculateNOfLineFunction({ point: this.point1 | this.point2, slope: this.slope })
-        }
-        return this.n
+    calculateNOfLineFunction = () => {
+        this.n = this.point1.y - this.slope * this.point1.x
     }
 
     getPointOnXAsis() {
-        if (this.slope) {
-            return this.getPointByX(0)
-        }
-        return undefined
+        return this.getPointByY(0)
     }
 
     getPointOnYAsis() {
-        if (this.slope) {
-            return this.getPointByY(0)
-        }
-        return undefined
-    }
-    isPointOnLine(point) {
-        const slope2 = calculateSlope(this.point1 | this.point2, point)
-        if (this.slope === slope2) {
-            const n2 = calculateNOfLineFunction({ point, slope: slope2 })
-            if (this.n === n2) {
-                return true
-            }
-        }
-        return false
+        return this.getPointByX(0)
     }
 
+
     getPointByX(x) {
-        if (this.slope && this.n) {
-            let y = this.slope * x + this.n
-            return new Point({ x, y })
-        }
+        let y = this.slope * x + this.n
+        return new Point({ x, y })
     }
 
     getPointByY(y) {
-        if (this.slope && this.n) {
-            let x = (y - this.slope) / this.n;
-            return new Point({ x, y })
-        }
+        let x = (y - this.slope) / this.n;
+        return new Point({ x, y })
     }
 }
 
