@@ -24,11 +24,11 @@ const calculateJunctionPoint = (line1, line2) => {
 }
 
 const isPointOnLine = (line, point) => {
-    const proxyLine = new Line(line.point1, point)
+    const proxyLine = new Line({ point1: line.point1, point2: point })
     proxyLine.calculateSlope()
     if (line.slope === proxyLine.slope) {
         proxyLine.calculateNOfLineFunction()
-        if (line.n === proxyLine.n2) {
+        if (line.n === proxyLine.n) {
             return true
         }
     }
