@@ -31,7 +31,7 @@ class Line {
     }
 
     getPointByY(y) {
-        let x = (y - this.slope) / this.n;
+        let x = (y - this.n) / this.slope;
         return new Point({ x, y })
     }
 }
